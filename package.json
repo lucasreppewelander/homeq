@@ -3,20 +3,32 @@
   "version": "1.0.0",
   "description": "homeq landingpage",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --verbose --coverage",
     "start": "webpack-dev-server --config webpack.config.babel.js --open",
-    "build": "webpack -p"
+    "build": "webpack -p",
+    "heroku-postbuild": "npm run build"
   },
   "author": "Lucas Reppe Welander",
   "license": "PRIVATE",
+  "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>setup/setup.js",
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>setup/file.mock.js",
+      "\\.(css|less)$": "identity-obj-proxy"
+    }
+  },
   "devDependencies": {
     "@babel/core": "^7.1.5",
     "@babel/preset-env": "^7.1.5",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",
     "css-loader": "^1.0.1",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.7.0",
     "eslint": "^5.8.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
@@ -25,6 +37,10 @@
     "file-loader": "^2.0.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^23.6.0",
+    "regenerator-runtime": "^0.12.1",
+    "sinon": "^7.1.1",
     "style-loader": "^0.23.1",
     "terser-webpack-plugin": "^1.1.0",
     "webpack": "^4.25.1",
