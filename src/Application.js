@@ -15,7 +15,7 @@ const mapDispatchToProps = {};
 class Application extends React.Component {
 	render () {
 		const { list, fetching } = this.props;
-		
+
 		return <div className='app'>
 			<Header />
 			<List list={list} fetching={fetching} />
@@ -24,4 +24,5 @@ class Application extends React.Component {
 	}
 };
 
+export const detached = Application;
 export default connect(mapStateToProps, mapDispatchToProps)(Application);

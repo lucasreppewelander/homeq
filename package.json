@@ -4,8 +4,8 @@
   "description": "homeq landingpage",
   "scripts": {
     "test": "jest --verbose --coverage",
-    "start": "webpack-dev-server --config webpack.config.babel.js --open",
-    "build": "webpack -p",
+    "start": "webpack-dev-server --env development --config webpack.config.babel.js --open --mode development",
+    "build": "webpack -p --env production --config webpack.config.babel.js --mode production",
     "heroku-postbuild": "npm run build"
   },
   "author": "Lucas Reppe Welander",
@@ -39,6 +39,7 @@
     "html-webpack-plugin": "^3.2.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^23.6.0",
+    "mini-css-extract-plugin": "^0.4.4",
     "regenerator-runtime": "^0.12.1",
     "sinon": "^7.1.1",
     "style-loader": "^0.23.1",
@@ -49,6 +50,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "lodash": "^4.17.11",
     "prop-types": "^15.6.2",
     "react": "^16.6.1",
     "react-dom": "^16.6.1",

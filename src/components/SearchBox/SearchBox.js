@@ -91,4 +91,5 @@ class SearchBox extends React.Component {
 	}
 };
 
+export const detached = SearchBox;
 export default connect(mapStateToProps, mapDispatchToProps)(SearchBox);

@@ -1,10 +1,11 @@
 import path from 'path';
 import webpack from 'webpack';
 import HtmlPlugin from 'html-webpack-plugin';
-
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import TerserPlugin from 'terser-webpack-plugin';
+import CleanUpCssMiniPlugin from './webpack/CleanUpCssMiniPlugin';
 
 module.exports = (ENV = 'development') => ({
-	mode: ENV === 'production' ? 'production' : 'development',
 	entry: './src',
 	output: {
 		filename: '[name].js',
@@ -13,6 +14,23 @@ module.exports = (ENV = 'development') => ({
 	devtool: 'inline-source-map',	
 	devServer: {
 		contentBase: './dist'
+	},
+	optimization: {
+		splitChunks: {
+			chunks: 'all'
+		},
+		minimizer: [new TerserPlugin({
+			parallel: true,
+			cache: './.build_cache/terser',
+			terserOptions: {
+				warnings: false,
+				mangle: false, // <- this needs to be fixed!
+				ie8: false,
+				output: {
+					comments: false
+				}
+			}
+		})]
 	},
 	module: {
 		rules: [
@@ -25,7 +43,7 @@ module.exports = (ENV = 'development') => ({
 				test: /\.css$/,
 				exclude: /node_modules/,
 				use: [
-					'style-loader',
+					ENV === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
 					{
 						loader: 'css-loader',
 						options: {
@@ -40,7 +58,7 @@ module.exports = (ENV = 'development') => ({
 				test: /\.css$/,
 				include: /node_modules/,
 				use: [
-					'style-loader',
+					ENV === 'production' ? MiniCssExtractPlugin.loader : 'style-loader',
 					{
 						loader: 'css-loader',
 						options: {
@@ -60,9 +78,15 @@ module.exports = (ENV = 'development') => ({
 		]
 	},
 	plugins: [
+		new MiniCssExtractPlugin({
+			filename: ENV === 'production' ? './css/[name].css' : './css/[name].[hash].css',
+			chunkFilename: ENV === 'production' ? './css/[id].css' : './css/[id].[hash].css'
+		}),
+		new CleanUpCssMiniPlugin(),
 		new webpack.DefinePlugin({
 			'process.env': {
-				ENV: JSON.stringify(ENV)
+				ENV: JSON.stringify(ENV),
+				NODE_ENV: JSON.stringify(ENV)
 			}
 		}),
 		new HtmlPlugin({
