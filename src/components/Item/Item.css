@@ -1,0 +1,15 @@
+.item {
+	width: 200px;
+	height: 200px;
+}
+
+.image {
+	height: 140px;
+	position: relative;
+}
+
+.img {
+	position: absolute;
+	width: auto;
+	height: 100%;
+}

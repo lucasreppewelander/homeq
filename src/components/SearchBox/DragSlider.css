@@ -1,0 +1,48 @@
+.dragSlider {
+	position: relative;
+	padding: 0 8px;
+}
+
+.dragSlider:after {
+	clear: both;
+	content: "";
+	display: block;
+}
+
+.handle {
+	width: 16px;
+	height: 16px;
+	border-radius: 100%;
+	background-color: rgba(0, 163, 204, 1);
+	z-index: 40;
+	top: 0px;
+	margin-left: -8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
+.progressBar {
+	top: 5px;
+	height: 7px;
+    width: 100%;
+    position: absolute;
+	border-radius: 3px;
+	background: rgba(0, 163, 204, 0.4);
+}
+
+
+.valuesLeft, .valuesRight {
+	font-size: 14px;
+}
+
+.valuesLeft {
+	float: left;
+}
+
+.valuesRight {
+	float: right;
+}
+
+.rheostat-background {
+	background: none;
+	border: none;
+}
