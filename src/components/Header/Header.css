@@ -16,6 +16,23 @@
 	position: relative;
 }
 
+.wrapper {
+	max-width: 1180px;
+	width: 100%;
+	margin: 0 auto;
+	position: relative;
+}
+
+.cardAreaItemWrapper {
+	display: flex;
+	flex-direction: row;
+}
+
+.subtitleCardArea {
+	margin-bottom: 20px;
+	font-size: 24px;
+}
+
 .shader {
 	top: 0;
 	left: 0;
@@ -31,30 +48,68 @@
 
 .searchBox {
     flex: 1;
-    width: 50%;
 	z-index: 50;
 	display: flex;
     position: relative;
-    align-items: center;
+    align-items: start;
 	flex-direction: column;
     justify-content: center;
 }
 
-.searchBoxRight {
-	flex: 1;
-    width: 50%;
+.searchBoxMiddle {
+	flex: 2;
 	z-index: 50;
 	display: flex;
     position: relative;
 	flex-direction: column;
 	align-items: start;
     justify-content: start;
-    padding: 120px 0;
     color: #fff;
+}
+
+.cardArea {
+	margin: 60px 0 0;
 }
 
 .boxWrapper {
 	flex: 1;
 	width: 100%;
 	display: flex;
+	margin: 60px 0 0;
+}
+
+@media screen and (max-width: 600px) {
+
+	.header {
+		background-size: auto 100%;
+		min-height: auto;
+	}
+
+	.boxWrapper {
+		flex-direction: column;
+		margin-top: 40px;
+	}
+
+	.searchBoxMiddle {
+		display: none;
+	}
+
+	.cardAreaItemWrapper {
+		flex-direction: column;
+	}
+
+	.cardArea {
+		width: 100%;
+		display: none;
+		margin: 0;
+	}
+
+	.title, .subtitle {
+		display: none;
+	}
+
+	.subtitleCardArea {
+		display: block;
+	}
+
 }

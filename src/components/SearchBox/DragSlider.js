@@ -12,7 +12,15 @@ const Handle = ({className, ...restProps}) => {
 };
 
 const ProgressBar = ({style}) => {
-	return <div className={styles.progressBar} {...style} />;
+	const theStyle = Object.assign({}, {
+		top: '5px',
+		height: '7px',
+		width: '100%',
+		position: 'absolute',
+		borderRadius: '3px',
+		background: 'rgba(0, 163, 204, 0.4)'
+	}, style)
+	return <div style={theStyle} />;
 };
 
 class DragSlider extends React.Component {

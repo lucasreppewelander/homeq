@@ -22,7 +22,7 @@ class Resource {
 		const fakeResponseTime = 4000;
 
 		return new Promise(resolve => {
-			setTimeout(resolve.bind(null, fakeData.results), 0);
+			setTimeout(resolve.bind(null, fakeData.results), fakeResponseTime);
 		});
 
 		// this wont work because of CORS atm, so im faking it.

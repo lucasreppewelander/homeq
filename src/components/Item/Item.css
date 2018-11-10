@@ -1,6 +1,23 @@
 .item {
-	width: 200px;
-	height: 200px;
+	width: 340px;
+    height: 230px;
+    background: transparent;
+	border-radius: 5px;
+	overflow: hidden;
+	box-shadow: 0 0 15px rgba(0,0,0,0.3);
+	position: relative;
+	transition: all .3s;
+	margin-right: 40px;
+	flex-grow: 1;
+    margin-bottom: 40px;
+}
+
+.item:hover {
+	transform: scale(1.02);
+}
+
+.item:nth-child(3n), .item:last-child {
+	margin-right: 0;
 }
 
 .image {
@@ -12,4 +29,82 @@
 	position: absolute;
 	width: auto;
 	height: 100%;
+}
+
+.theImage {
+	position: absolute;
+    width: 200%;
+	top: 120px;
+    left: -50%;
+    transform: translateY(-50%);
+}
+
+.textHolder {
+	position: absolute;
+    z-index: 5002;
+	height: calc(100% - 40px);
+    width: calc(100% - 40px);
+    top: 20px;
+    left: 20px;
+    bottom: 20px;
+    right: 20px;
+}
+
+.shader {
+	background: -moz-linear-gradient(-45deg, rgba(0,33,41,1) 0%,  rgba(0,163,204,0.2) 100%);
+background: -webkit-linear-gradient(-45deg, rgba(0,33,41,1) 0%,rgba(0,163,204,0.2) 100%);
+background: linear-gradient(135deg, rgba(0,33,41,1) 0%,rgba(0,163,204,0.2) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#002129', endColorstr='#66ffffff',GradientType=1 );
+	height: 100%;
+    position: absolute;
+    z-index: 5000;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.cityCounty {
+	margin: 10px 0 5px -3px;
+}
+
+.bottomItem {
+	flex: 1;
+	text-align: left;
+	margin: 5px 0;
+}
+
+.bottom {
+	display: flex;
+	margin-left: -3px;
+	flex-direction: column;
+}
+
+i.fa {
+	line-height: 20px;
+    font-size: 14px;
+}
+
+.boldTextUppercaseExtraMargin {
+	text-transform: uppercase;
+	font-size: 12px;
+	font-weight: 700;
+	display: inline-block;
+	margin: 0 5px 0 10px;
+}
+
+.boldTextUppercase {
+	text-transform: uppercase;
+	font-size: 12px;
+	font-weight: 700;
+	display: inline-block;
+	margin: 0 5px;
+}
+
+@media screen and (max-width: 600px) {
+	.item {
+		margin-right: 0;
+		width: 100%;
+	}
 }

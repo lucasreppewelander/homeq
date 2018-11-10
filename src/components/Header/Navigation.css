@@ -1,6 +1,6 @@
 .navigation {
-	top: 32px;
-	right: 30px;
+	top: 0;
+	right: 0;
 	z-index: 100;
 	display: flex;
 	list-style: none;
@@ -45,4 +45,66 @@
 .navItem:hover .navLink::after {
 	width: calc(100% - 20px);
     transition: 0.3s ease all;
+}
+
+.mobileNav {
+	display: none;
+}
+
+.mobileNavButton {
+	color: #fff;
+    font-size: 24px;
+    padding-top: 5px;
+}
+
+.mobileNavigationClosed, .mobileNavigationOpen {
+	display: none;
+}
+
+@media screen and (max-width: 600px) {
+	.mobileNav {
+		display: block;
+	}
+
+	.navItem {
+		display: none;
+	}
+
+	.mobileNavigationClosed, .mobileNavigationOpen {
+		display: block;
+	}
+
+	.mobileNavigationOpen {
+		display: block;
+		position: absolute;
+		top: -30px;
+		left: -30px;
+		bottom: -30px;
+		width: 90%;
+		background: #fff;
+		z-index: 5000;
+		padding: 20px 0;
+		transition: all .3s;
+		box-shadow: 1px 0 10px rgba(0,0,0,0.1);
+	}
+
+	.mobileNavigationClosed {
+		display: block;
+		transition: all .3s;
+		position: absolute;
+		top: -30px;
+		left: -100%;
+		bottom: -30px;
+		width: 90%;
+		background: #fff;
+		z-index: 5000;
+		padding: 20px 0;
+		box-shadow: 1px 0 10px rgba(0,0,0,0.1);
+	}
+
+	.mobileNavigationLink {
+		color: #333;
+		padding: 10px 30px;
+		display: block;
+	}
 }

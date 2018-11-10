@@ -5,7 +5,7 @@
     flex: 0 1 auto;
     background: #fff;
 	border-radius: 5px;
-    align-items: center;
+	align-items: center;
     box-sizing: border-box;
     justify-content: center;
 }
@@ -63,4 +63,14 @@
 	font-weight: 700;
 	cursor: pointer;
 	margin-top: 5px;
+}
+
+.searchButton:active, .searchButton:focus {
+	outline: none;
+}
+
+@media screen and (max-width: 600px) {
+	.searchBox {
+		width: 100%;
+	}
 }

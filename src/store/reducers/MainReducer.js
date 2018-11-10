@@ -8,6 +8,8 @@ export const initialState = {
 	rooms: [1, 8],
 	area: [10, 300],
 	fetching: false,
+	searchStarted: false,
+	mobileMenuOpen: false,
 	list: []
 };
 
@@ -15,6 +17,10 @@ const SEARCH = 'SEARCH';
 const SET_DATA = 'SET_DATA';
 const FETCH_LIST = 'FETCH_LIST';
 const SET_LIST = 'SET_LIST';
+const START_FETCH = 'START_FETCH';
+
+const OPEN_MOBILE_MENU = 'OPEN_MOBILE_MENU';
+const CLOSE_MOBILE_MENU = 'CLOSE_MOBILE_MENU';
 
 const reducer = (state = initialState, action) => {
 	switch(action.type) {
@@ -24,6 +30,12 @@ const reducer = (state = initialState, action) => {
 			return {...state, [action.key]: action.value};
 		case FETCH_LIST:
 			return {...state, fetching: action.value};
+		case START_FETCH:
+			return {...state, searchStarted: action.value};
+		case OPEN_MOBILE_MENU:
+			return {...state, mobileMenuOpen: true};
+		case CLOSE_MOBILE_MENU:
+			return {...state, mobileMenuOpen: false};
 		case SET_LIST:
 			return {...state, list: action.list};
 		default:
@@ -31,8 +43,27 @@ const reducer = (state = initialState, action) => {
 	}
 };
 
+// export const toggleMobileMenu = () => {
+// 	return (dispatch, getState) => {
+// 		const {mobileMenuOpen} = getState().MainReducer;
+// 	}
+// };
+
+export const openMobileMenu = () => {
+	return dispatch => {
+		dispatch({ type: OPEN_MOBILE_MENU });
+	}
+};
+
+export const closeMobileMenu = () => {
+	return dispatch => {
+		dispatch({ type: CLOSE_MOBILE_MENU });
+	}
+};
+
 export const doSearch = data => {
 	return dispatch => {
+		dispatch({ type: START_FETCH, value: true });
 		dispatch({ type: FETCH_LIST, value: true });
 
 		API.search(data).then(list => {

@@ -36,10 +36,12 @@
 
 .valuesLeft {
 	float: left;
+	margin-left: -5px;
 }
 
 .valuesRight {
 	float: right;
+	margin-right: -5px;
 }
 
 .rheostat-background {

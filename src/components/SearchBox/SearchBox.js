@@ -30,7 +30,7 @@ class SearchBox extends React.Component {
 	}
 
 	render () {
-		const { query, rooms, area, rent, setData, doSearch } = this.props;
+		const { gotResult, query, rooms, area, rent, setData, doSearch } = this.props;
 
 		return <div className={styles.searchBox}>
 			<div className={styles.control}>

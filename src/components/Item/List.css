@@ -1,0 +1,25 @@
+.list {
+	color: #fff;
+	max-width: 1180px;
+	width: 100%;
+	margin: 0 auto;
+	padding: 40px 0;
+}
+
+.innerlist {
+	flex-direction: row;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.listTitle {
+	color: #333;
+	margin-bottom: 20px;
+}
+
+@media screen and (max-width: 600px) {
+	.list {
+		width: calc(100% - 60px);
+		padding: 15px 30px;
+	}
+}

@@ -72,7 +72,7 @@ module.exports = (ENV = 'development') => ({
 				use: ['html-loader']
 			},
 			{
-				test: /\.(svg|jpg|png)$/,
+				test: /\.(svg|jpg|png|eot|woff|ttf|woff2)$/,
 				use: ['file-loader']
 			}
 		]
