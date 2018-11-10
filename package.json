@@ -4,7 +4,8 @@
   "description": "homeq landingpage",
   "scripts": {
     "test": "jest --verbose --coverage",
-    "start": "webpack-dev-server --env development --config webpack.config.babel.js --open --mode development",
+    "start": "node server.js",
+    "dev": "webpack-dev-server --env development --config webpack.config.babel.js --open --mode development",
     "build": "webpack -p --env production --config webpack.config.babel.js --mode production",
     "heroku-postbuild": "npm run build"
   },
@@ -26,6 +27,7 @@
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",
+    "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^1.0.1",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.7.0",
@@ -50,6 +52,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "express": "^4.16.4",
     "font-awesome": "^4.7.0",
     "lodash": "^4.17.11",
     "prop-types": "^15.6.2",

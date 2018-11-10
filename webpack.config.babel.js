@@ -4,6 +4,7 @@ import HtmlPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import TerserPlugin from 'terser-webpack-plugin';
 import CleanUpCssMiniPlugin from './webpack/CleanUpCssMiniPlugin';
+import CleanWebpackPlugin from 'clean-webpack-plugin';
 
 module.exports = (ENV = 'development') => ({
 	entry: './src',
@@ -72,12 +73,28 @@ module.exports = (ENV = 'development') => ({
 				use: ['html-loader']
 			},
 			{
-				test: /\.(svg|jpg|png|eot|woff|ttf|woff2)$/,
-				use: ['file-loader']
+				test: /\.(svg|jpg|png)$/,
+				use: [{
+					loader: 'file-loader',
+					options: {
+						name: 'images/[name].[ext]',
+						publicPath: '../'
+					}
+				}]
+			},
+			{
+				test: /\.(eot|woff|ttf|woff2)$/,
+				use: [{
+					loader: 'file-loader',
+					options: {
+						name: 'fonts/[name].[ext]'
+					}
+				}]
 			}
 		]
 	},
 	plugins: [
+		new CleanWebpackPlugin(['dist']),
 		new MiniCssExtractPlugin({
 			filename: ENV === 'production' ? './css/[name].css' : './css/[name].[hash].css',
 			chunkFilename: ENV === 'production' ? './css/[id].css' : './css/[id].[hash].css'
