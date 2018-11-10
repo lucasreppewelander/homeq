@@ -3,10 +3,15 @@
 ### Development
 ```
 npm install
-npm start
+npm run dev
 ```
 
 ### Build
 ```
 npm run build
+```
+
+### Run build local
+```
+npm start
 ```
