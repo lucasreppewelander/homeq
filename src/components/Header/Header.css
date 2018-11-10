@@ -56,7 +56,7 @@
     justify-content: center;
 }
 
-.searchBoxMiddle {
+.searchBoxMiddle, .searchBoxMiddleFix {
 	flex: 2;
 	z-index: 50;
 	display: flex;
@@ -90,7 +90,7 @@
 		margin-top: 40px;
 	}
 
-	.searchBoxMiddle {
+	.searchBoxMiddle, .searchBoxMiddleFix {
 		display: none;
 	}
 

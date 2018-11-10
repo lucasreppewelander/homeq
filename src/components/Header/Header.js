@@ -39,7 +39,7 @@ const Header = (props) => {
 					<div className={styles.searchBox}>
 						<SearchBox />
 					</div>
-					<div className={!props.gotResult && styles.searchBoxMiddle}>
+					<div className={!props.gotResult ? styles.searchBoxMiddle : styles.searchBoxMiddleFix}>
 						<h1 className={styles.title}>
 							{'Find your next apartment'}
 						</h1>
